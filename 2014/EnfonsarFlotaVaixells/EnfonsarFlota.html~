@@ -1,0 +1,62 @@
+<!DOCTYPE>
+<html lang="es" dir="ltr" class="client-nojs">
+
+	<head>
+		<!-- 
+		Comentaris en HTML5 
+		-->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="autor" content="Víctor Aduart" />
+
+		<title>EnfonsarFlota</title>
+	 	<!--	El CSS del projecte s'ha de lincar per saber on és :	-->
+		<link rel="stylesheet" type="text/css" href="EnfonsarFlota.css" />
+		<script language="JavaScript" src="EnfonsarFlota.js"> </script> 
+		<script language="JavaScript" src="jQuery-JS-Lib-2_1_0.js"> </script> 
+
+	<head>
+
+<body >
+			    
+		<div><h2>EnfonsarFlota .. Prem Començar i escull les posicions</h2></div>
+	
+	<p>Has de colocar els vaixells de 5, 4, 3 i 2 fitxes al tauler. </br>
+	No es poden tocar per cap banda, i deixar un espai entre ells.</p>
+	
+	</br>
+    	</br>
+	
+	<p>Has de colocar el vaixell de:     <span id="fitxes" value="0" readonly>  .... </span> <span>  fitxes</span> </p>
+	<!-- ............... -->
+ 
+	</br>
+	
+	<div id="taulell">
+	  <div class="flotant" id="colocats" style="left: 1000px;">Llista de vaixells colocats</div>
+	  
+	  <div class="flotant"> 
+		  <div id="posicions">	
+		  </div>  
+		    	</br>
+		  <button  id="jugar" onclick="iniciar()"> INICIAR JOC 
+		  </button>
+		   <button  id="reset" onclick="reset()"> ESBORAR 
+		  </button>
+		  <button  id="mostrar" onclick="mostrar()"> MOSTRAR POSICIONS 
+		  </button>
+		  
+		  <div><h2 id="frase"> ...  </h2>
+		  </div>
+	  </div> 
+	 
+	
+	  <div class="flotant" id="enfonsats" style="left: 1000px;">Llista de vaixells enfonsats</div>
+	</div>
+	
+	<script>
+		build(); // Genero la pantalla inicial amb el dibuix i el teclat alfabetic
+	</script>
+
+</body>
+</html>

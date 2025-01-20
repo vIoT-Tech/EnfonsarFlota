@@ -1,0 +1,49 @@
+/* CSS del EnfonsarFlota */
+ 
+
+.flotant{ /*class*/
+	padding: 5%;
+	float: left;
+}
+
+.botoA { /*class AIGUA*/ 
+  	width: 40px;
+	height: 40px;
+	background-color: #ADD8E6;
+}
+
+.botoI { /*class INICIALITZAR*/
+  	width: 40px;
+	height: 40px;
+	background-color: grey;
+ }
+
+.botoT { /*class TOCAT*/
+  	width: 40px;
+	height: 40px;
+	background-color: yellow;
+}
+.botoE { /*class ENFONSAT*/
+	width: 40px;
+	height: 40px;
+	background-color: red;
+ }
+ 
+ .botoD { /*class DESITJAT*/ 
+  	width: 40px;
+	height: 40px;
+	background-color: green;
+}
+
+#fitxes{
+      color: green;
+      font: 3em;
+}
+
+
+
+ /*id="enfonsats"
+ 
+ id="colocats"*/
+ 
+ 

@@ -1,0 +1,4 @@
+function saludar(){
+       var nom =document.getElementById('nombre'); 
+       alert("Hola " + nom);
+}

@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html>
+<!--  Exercici Batalla Naval per Vicen�� Arnal -->
+<html lang='ca'>
+<head>
+        <meta charset="ISO-8859-1">
+        <title>Batalla naval</title>
+        <style>
+                table { border-collapse: collapse; }
+                table, th, td {
+                        border: 1px solid black;
+                }
+                td {
+                        height: 1.8em;
+                        width: 1.8em;
+                }
+                .aigua {
+                        background-color: blue;
+                }
+                .tocat {
+                        background-color: red;
+                }
+                .esfonsat {
+                        background-color: black;
+                }
+                .mar {
+                        background-color: RoyalBlue;
+                }
+        </style>
+        <script>
+                var contaEsfonsats = 0;
+                var vaixells = [2,3,4,5];
+                // per reinciar el joc en petjar but��
+                function reinici() {
+                        contaEsfonsats = 0;
+                        vaixells.len = 0;               // neteja vaixells anteriors
+                        vaixells = [2,3,4,5];
+                        for (x=1;x<10;x++) {            // neteja classes de tauler de joc
+                                for (y=1;y<10;y++) {
+                                        document.getElementById(x + y.toString()).className = '';
+                                }
+                        }
+                        creaFlota();
+                }
+                // per crear la flota de vaixells
+                function creaFlota() {
+                        var x = 0;
+                        do {
+                                var len = vaixells[x];
+                                var fil = Math.floor((Math.random()*9)+1);      // random fila
+                                var col = Math.floor((Math.random()*9)+1);      // random columna
+                                var dir = Math.floor(Math.random()*2);          // random direccio; 0 - horitzontal,    1 - vertical
+                                if (hiHaEspai(fil,col,len,dir)) {  // si tenim espai per colocar vaixell al lloc trobat
+                                        var fi = fil - 1;                       // fi = fila inicial
+                                        if (fi < 1) { fi = 1; }
+                                        var ff = fil + 1;                       // ff - fila final
+                                        var ci = col - 1;                       // ci - columna inicial
+                                        if (ci < 1) { ci = 1; }
+                                        var cf = col + 1;                       // cf - columna final
+                                        if (dir === 0) { cf = cf + (len-1); } else { ff = ff + (len-1); }               // aplica el tamany en funcio de la direccio 
+                                        if (ff > 9) { ff = 9;}
+                                        if (cf > 9) { cf = 9; }
+                                        for (y=fi;y<=ff;y++) {          // marca caselles on no pot anar vaixell nou
+                                                for (z=ci;z<=cf;z++) {
+                                                        document.getElementById(y + z.toString()).title = 'ocupat';
+                                                }
+                                        }
+                                        vaixells[x] = new Array(len);
+                                        if (dir === 0) {                                        // crea aray vaixell en funcio de la direccio
+                                                for (y=col;y<(col+len);y++) {
+                                                        vaixells[x][y-col] = fil + y.toString();
+                                                }
+                                        } else {
+                                                for (y=fil;y<(fil+len);y++) {
+                                                        vaixells[x][y-fil] = y.toString() + col;
+                                                }
+                                        }
+                                        x = x + 1;
+                                }
+                        } while (x < 4);
+                        for (x=1;x<10;x++) {            // neteja marques de casella ocupada (titol)
+                                for (y=1;y<10;y++) {
+                                        document.getElementById(x + y.toString()).title = '';
+                                }
+                        }
+                        /*for (x=0;x<4;x++) {           // per mostrar la situacio
+                                console.log (vaixells[x]);
+                        }*/
+                }
+                // verifica que hi ha espai per posar el vaixel al lloc (true/false)
+                function hiHaEspai(fil,col,len,dir) {
+                        var hiHa = true;
+                        var fi = fil;           //  fi - fila inicial
+                        var ff = fil;           //  ff - fila final
+                        var ci = col;           //  ci - columna inicial
+                        var cf = col;           //  cf - columna final
+                        if (dir === 0) {
+                                if (col+len > 9) { hiHa = false; }              // s'escapa de la fila
+                        } else {
+                                if (fil+len > 9) { hiHa = false; }              // s'escapa de la columna
+                        }
+                        if (hiHa) {
+                                if (dir === 0) { cf = cf + (len-1); } else { ff = ff + (len-1); }               // aplica el tamany en funcio de la direccio 
+                                if (cf > 9) { hiHa = false; }           // s'escapa de la fila
+                                if (ff > 9) { hiHa = false; }           // s'escapa de la columna
+                                if (hiHa) {
+                                        for (y=fi;y<(ff+1);y++) {               // segueix les posicions on ha d'anar el vaixell
+                                                for (z=ci;z<(cf+1);z++) {
+                                                        if (document.getElementById(y + z.toString()).title != '') {    // si hi ha titol, no hi pot anar
+                                                                hiHa = false;
+                                                        }
+                                                }
+                                        }
+                                }
+                        }
+                        return hiHa;
+                }
+                // gestiona els trets sobre la flota
+                function tir(casella) {
+                        if ( document.getElementById(casella.id).className === '') {    // si ja hem disparat, no fem res
+                                for (var x=0;x<4;x++) {                 // verifica per cada vaixell
+                                        var y = vaixells[x].indexOf(casella.id);
+                                        if (y != -1) {  // el tret esta en un vaixell (x)
+                                                casella.className = 'tocat';    // marca tocat
+                                                if (verifSrink(x)) {                            // si el vaixell x esta esfonsat
+                                                        contaEsfonsats = contaEsfonsats + 1;
+                                                        for (var z=0;z<vaixells[x].length;z++) {
+                                                                document.getElementById(vaixells[x][z]).className = 'esfonsat';
+                                                        }
+                                                        if (contaEsfonsats === 4) {     // si tots vaixells esfonsats
+                                                                for (var z=1;z<10;z++) {
+                                                                        for (var w=1;w<10;w++) {
+                                                                                if (document.getElementById(z + w.toString()).className === '') {
+                                                                                        document.getElementById(z + w.toString()).className = 'mar';
+                                                                                }
+                                                                        }
+                                                                }
+                                                        }
+                                                }
+                                        }
+                                }
+                                if (casella.className === '') { casella.className = 'aigua'; }
+                        }
+                }
+                // verifica si el vaixell esta esfonsat (true/false)
+                function verifSrink (vaixell) {
+                        var esfons = true;
+                        for (var x=0;x<vaixells[vaixell].length;x++) {
+                                if (document.getElementById(vaixells[vaixell][x]).className === '') { esfons = false; }
+                        }
+                        return esfons;
+                }
+        </script>
+</head>
+
+<body onload='creaFlota()'>
+        <table>
+                <tr>
+                        <td id='11' onclick='tir(this)'></td><td id='12' onclick='tir(this)'></td><td id='13' onclick='tir(this)'></td><td id='14' onclick='tir(this)'></td><td id='15' onclick='tir(this)'></td><td id='16' onclick='tir(this)'></td><td id='17' onclick='tir(this)'></td><td id='18' onclick='tir(this)'></td><td id='19' onclick='tir(this)'></td>
+                </tr>
+                <tr>
+                        <td id='21' onclick='tir(this)'></td><td id='22' onclick='tir(this)'></td><td id='23' onclick='tir(this)'></td><td id='24' onclick='tir(this)'></td><td id='25' onclick='tir(this)'></td><td id='26' onclick='tir(this)'></td><td id='27' onclick='tir(this)'></td><td id='28' onclick='tir(this)'></td><td id='29' onclick='tir(this)'></td>
+                </tr>
+                <tr>
+                        <td id='31' onclick='tir(this)'></td><td id='32' onclick='tir(this)'></td><td id='33' onclick='tir(this)'></td><td id='34' onclick='tir(this)'></td><td id='35' onclick='tir(this)'></td><td id='36' onclick='tir(this)'></td><td id='37' onclick='tir(this)'></td><td id='38' onclick='tir(this)'></td><td id='39' onclick='tir(this)'></td>
+                </tr>
+                <tr>
+                        <td id='41' onclick='tir(this)'></td><td id='42' onclick='tir(this)'></td><td id='43' onclick='tir(this)'></td><td id='44' onclick='tir(this)'></td><td id='45' onclick='tir(this)'></td><td id='46' onclick='tir(this)'></td><td id='47' onclick='tir(this)'></td><td id='48' onclick='tir(this)'></td><td id='49' onclick='tir(this)'></td>
+                </tr>
+                <tr>
+                        <td id='51' onclick='tir(this)'></td><td id='52' onclick='tir(this)'></td><td id='53' onclick='tir(this)'></td><td id='54' onclick='tir(this)'></td><td id='55' onclick='tir(this)'></td><td id='56' onclick='tir(this)'></td><td id='57' onclick='tir(this)'></td><td id='58' onclick='tir(this)'></td><td id='59' onclick='tir(this)'></td>
+                </tr>
+                <tr>
+                        <td id='61' onclick='tir(this)'></td><td id='62' onclick='tir(this)'></td><td id='63' onclick='tir(this)'></td><td id='64' onclick='tir(this)'></td><td id='65' onclick='tir(this)'></td><td id='66' onclick='tir(this)'></td><td id='67' onclick='tir(this)'></td><td id='68' onclick='tir(this)'></td><td id='69' onclick='tir(this)'></td>
+                </tr>
+                <tr>
+                        <td id='71' onclick='tir(this)'></td><td id='72' onclick='tir(this)'></td><td id='73' onclick='tir(this)'></td><td id='74' onclick='tir(this)'></td><td id='75' onclick='tir(this)'></td><td id='76' onclick='tir(this)'></td><td id='77' onclick='tir(this)'></td><td id='78' onclick='tir(this)'></td><td id='79' onclick='tir(this)'></td>
+                </tr>
+                <tr>
+                        <td id='81' onclick='tir(this)'></td><td id='82' onclick='tir(this)'></td><td id='83' onclick='tir(this)'></td><td id='84' onclick='tir(this)'></td><td id='85' onclick='tir(this)'></td><td id='86' onclick='tir(this)'></td><td id='87' onclick='tir(this)'></td><td id='88' onclick='tir(this)'></td><td id='89' onclick='tir(this)'></td>
+                </tr>
+                <tr>
+                        <td id='91' onclick='tir(this)'></td><td id='92' onclick='tir(this)'></td><td id='93' onclick='tir(this)'></td><td id='94' onclick='tir(this)'></td><td id='95' onclick='tir(this)'></td><td id='96' onclick='tir(this)'></td><td id='97' onclick='tir(this)'></td><td id='98' onclick='tir(this)'></td><td id='99' onclick='tir(this)'></td>
+                </tr>
+        </table>
+        <button onclick='reinici()'>Reinicia</button>
+</body>
+</html>
+

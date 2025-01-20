@@ -1,0 +1,42 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: res/drawable-xhdpi/icon.png
+SHA1-Digest: V29pfkn63ZKvWbMehv1gXLydfEg=
+
+Name: res/xml/config.xml
+SHA1-Digest: 0uog14Wytl75fg97zLAKExH1+wU=
+
+Name: resources.arsc
+SHA1-Digest: EDySgJLJe3nXFp2+js+t8fVPR5k=
+
+Name: classes.dex
+SHA1-Digest: KsMwxaV9TbrE7G+b3lzYYAY1iGA=
+
+Name: assets/www/phonegap.js
+SHA1-Digest: AtpaSyn/8lA4uxmpNjFoGf4DLKY=
+
+Name: assets/www/cordova.js
+SHA1-Digest: AtpaSyn/8lA4uxmpNjFoGf4DLKY=
+
+Name: AndroidManifest.xml
+SHA1-Digest: FJ/qHTWl7xLw58KL6ybHZbdTtoE=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: 2J9Tvy/YaxPRs/ZafKZe/EsVt/o=
+
+Name: res/drawable/icon.png
+SHA1-Digest: V29pfkn63ZKvWbMehv1gXLydfEg=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: Lw/SqxqQxDgeX1jWQ7pEzoJ873E=
+
+Name: assets/www/index.html
+SHA1-Digest: s/r3p0uwcFIZcKm5msmLObAt7tM=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: 7k0R15Eowd7viwJeIN6gaJ1z0j0=
+
+Name: assets/www/js/ejemplo.js
+SHA1-Digest: TI4luu1KQjykViY8ZT72HeayXZk=
+

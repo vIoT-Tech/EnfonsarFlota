@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.switch-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.switch {
+    position: relative;
+}
+
+.switch input {
+    display: none; /* Versteckt das Eingabefeld */
+}
+
+.slider {
+    background-color: #ccc;
+    border-radius: 34px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.switch input:checked + .slider {
+    background-color: #2196F3; /* Farbe des Schiebereglers */
+}
+
+.blue-points {
+    list-style-type: none; /* Entfernt die Standard-Punkte */
+    padding-left: 0; /* Entfernt den linken Rand */
+}
+
+.blue-points li {
+    color: blue; /* Setzt die Farbe der Punkte auf Blau */
+    font-size: 18px; /* Setzt die Schriftgröße */
+}

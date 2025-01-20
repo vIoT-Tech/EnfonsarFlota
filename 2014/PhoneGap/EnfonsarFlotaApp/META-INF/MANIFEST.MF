@@ -1,0 +1,57 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: assets/www/EnfonsarFlota.png
+SHA1-Digest: AwEPY11AaGxaLD4LDUqWb3uodXg=
+
+Name: res/drawable-xhdpi/icon.png
+SHA1-Digest: zMGF1eR/9oZBU5cNbylsM5j6Cio=
+
+Name: res/xml/config.xml
+SHA1-Digest: 10Y1vw/zDRuAtZls00FfUo6Jkuc=
+
+Name: resources.arsc
+SHA1-Digest: 6xy/jOwxzcdZ1HT8SFxh5WaFem8=
+
+Name: classes.dex
+SHA1-Digest: N/YDN6oR/h1MBQBxijQ5HNbhMwM=
+
+Name: assets/www/EnfonsarFlota.js
+SHA1-Digest: ieb1ZYbb6xVbKQx/Uu8MK++KtWc=
+
+Name: assets/www/phonegap.js
+SHA1-Digest: AtpaSyn/8lA4uxmpNjFoGf4DLKY=
+
+Name: assets/www/EnfonsarFlota.css
+SHA1-Digest: 67tBtjWDUnwMmsNmehytdSSJpHk=
+
+Name: assets/www/cordova.js
+SHA1-Digest: AtpaSyn/8lA4uxmpNjFoGf4DLKY=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: zMGF1eR/9oZBU5cNbylsM5j6Cio=
+
+Name: AndroidManifest.xml
+SHA1-Digest: zv9l8e2b1DzYZfif0RtlnMgcctA=
+
+Name: assets/www/jQuery-JS-Lib-2_1_0.js
+SHA1-Digest: D+PlZ+B3YibumDJrqMrnaAaDwRI=
+
+Name: res/drawable/icon.png
+SHA1-Digest: V29pfkn63ZKvWbMehv1gXLydfEg=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: zMGF1eR/9oZBU5cNbylsM5j6Cio=
+
+Name: assets/www/EnfonsarFlota-BCKP.js
+SHA1-Digest: x04VK6wgaELsB5iIkxUW1Ofh/6w=
+
+Name: assets/www/EnfonsarFlota.html
+SHA1-Digest: 3UOsQG2E5ejDblGGy8pKZ7bXryo=
+
+Name: assets/www/index.html
+SHA1-Digest: 3UOsQG2E5ejDblGGy8pKZ7bXryo=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: zMGF1eR/9oZBU5cNbylsM5j6Cio=
+

@@ -1,0 +1,46 @@
+<!-- Generiere einen Front End in Html, Css und Javascript mit folgende Elemente:
+1- ein titel
+2- einen Switch mit 3 Positionen „Demo“, „Manual“, „Automatic“
+3- eine Liste mit 5 Eingaben bestehend aus 5 Blaue Punkte -->
+
+<!-- Battleship Game -->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Front-End Beispiel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mein Front-End Beispiel</h1>
+        
+        <div class="switch-container">
+            <label class="switch">
+                <input type="radio" name="mode" value="Demo" checked>
+                <span class="slider">Demo</span>
+            </label>
+            <label class="switch">
+                <input type="radio" name="mode" value="Manual">
+                <span class="slider">Manual</span>
+            </label>
+            <label class="switch">
+                <input type="radio" name="mode" value="Automatic">
+                <span class="slider">Automatic</span>
+            </label>
+        </div>
+
+        <ul class="blue-points">
+            <li>• Punkt 1</li>
+            <li>• Punkt 2</li>
+            <li>• Punkt 3</li>
+            <li>• Punkt 4</li>
+            <li>• Punkt 5</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

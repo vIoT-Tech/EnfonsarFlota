@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Explanation
+HTML Structure
+	•	The HTML creates a simple layout with a title, a grid for the game board, a message area to display the current player’s turn or the winner’s announcement, and a button to start the game.
+CSS Styling
+	•	The CSS styles the game board as a grid and gives visual feedback for hits and misses.
+JavaScript Logic
+	•	Game Initialization:
+	•	The game starts when the “Start Game” button is clicked.
+	•	Both players’ grids are initialized and ships are placed randomly.
+	•	Ship Placement:
+	•	Ships are placed randomly on each player’s grid without overlapping.
+	•	Gameplay:
+	•	Each bot takes turns automatically.
+	•	A random cell is selected for each attack.
+	•	Hits and misses are visually represented on the grid.
+	•	The game checks for a win condition after each turn.
+Running the Game
+To run this Battleship game:
+	1.	Create three files (`index.html`, `styles.css`, `script.js`) and copy the respective code into each file.
+	2.	Open `index.html` in your web browser.
+You should see a simple Battleship game where two bots play against each other automatically! Enjoy testing it out! -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Battleship Game</h1>
+        <div class="grid" id="grid"></div>
+        <div id="message"></div>
+        <button id="startGame">Start Game</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
